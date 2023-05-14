@@ -13,12 +13,12 @@ red_pwm = GPIO.PWM(14, 10000)  # Frequency of 10kHz
 ir_pwm = GPIO.PWM(15, 10000)  # Frequency of 10kHz
 red_pwm.start(100)  # Initial duty cycle of 0%
 ir_pwm.start(0)  # Initial duty cycle of 100%
-duty_cycle = 100  # Set duty cycle to 50%
+duty_cycle = 100  # Set duty cycle to 100%
 
 # Set up camera
 camera = picamera.PiCamera()
 camera.resolution = (640, 480)  # Set resolution to 640x480 pixels
-camera.framerate = 90  # Set framerate to 30fps
+camera.framerate = 90  # Set framerate to 90fps
 
 # Run for 10 seconds
 duration = 10  # in seconds
