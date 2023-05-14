@@ -13,7 +13,7 @@ red_pwm = GPIO.PWM(14, 50)  # Frequency of 50Hz
 ir_pwm = GPIO.PWM(15, 50)  # Frequency of 50Hz
 red_pwm.start(100)  # Initial duty cycle of 0%
 ir_pwm.start(0)  # Initial duty cycle of 100%
-duty_cycle = 100  # Set duty cycle to 50%
+duty_cycle = 100  # Set duty cycle to 100%
 
 # Set up camera
 camera = picamera.PiCamera()
