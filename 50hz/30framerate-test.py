@@ -9,8 +9,8 @@ GPIO.setup(14, GPIO.OUT)  # Red LED
 GPIO.setup(15, GPIO.OUT)  # Infrared LED
 
 # Set up PWM signals for red and infrared LEDs
-red_pwm = GPIO.PWM(14, 50)  # Frequency of 50Hz
-ir_pwm = GPIO.PWM(15, 50)  # Frequency of 50Hz
+red_pwm = GPIO.PWM(14, 30)  # Frequency of 50Hz
+ir_pwm = GPIO.PWM(15, 30)  # Frequency of 50Hz
 red_pwm.start(100)  # Initial duty cycle of 0%
 ir_pwm.start(0)  # Initial duty cycle of 100%
 duty_cycle = 100  # Set duty cycle to 100%
@@ -21,7 +21,7 @@ camera.resolution = (640, 480)  # Set resolution to 640x480 pixels
 camera.framerate = 30  # Set framerate to 30fps
 
 # Run for 10 seconds
-duration = 10  # in seconds
+duration = 60  # in seconds
 start_time = time.time()
 frame_num = 0
 
