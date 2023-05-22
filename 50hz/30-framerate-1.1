@@ -1,0 +1,40 @@
+import RPi.GPIO as GPIO
+import time
+import picamera
+
+# Set up GPIO pins
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(14, GPIO.OUT)  # Red LED
+GPIO.setup(15, GPIO.OUT)  # Infrared LED
+
+# Set up camera
+camera = picamera.PiCamera()
+camera.resolution = (640, 480)  # Set resolution to 640x480 pixels
+camera.framerate = 30  # Set framerate to 30fps
+
+# Run for 60 seconds
+duration = 60  # in seconds
+start_time = time.time()
+frame_num = 0
+led_state = False  # Track LED state (False: Red, True: IR)
+
+while (time.time() - start_time) < duration:
+    # Switch LEDs
+    if led_state:
+        GPIO.output(14, GPIO.LOW)  # Red LED OFF
+        GPIO.output(15, GPIO.HIGH)  # Infrared LED ON
+        filename = f'ir_frame_{frame_num:03d}.jpg'
+    else:
+        GPIO.output(14, GPIO.HIGH)  # Red LED ON
+        GPIO.output(15, GPIO.LOW)  # Infrared LED OFF
+        filename = f'red_frame_{frame_num:03d}.jpg'
+    
+    # Capture frame
+    camera.capture(filename)
+    frame_num += 1
+    led_state = not led_state  # Flip LED state
+    time.sleep(0.0167)  # Wait for next cycle
+
+# Clean up
+GPIO.cleanup()
