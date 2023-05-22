@@ -9,8 +9,8 @@ GPIO.setup(14, GPIO.OUT)  # Red LED
 GPIO.setup(15, GPIO.OUT)  # Infrared LED
 
 # Set up PWM signals for red and infrared LEDs
-red_pwm = GPIO.PWM(14, 30)  # Frequency of 50Hz
-ir_pwm = GPIO.PWM(15, 30)  # Frequency of 50Hz
+red_pwm = GPIO.PWM(14, 30)  # Frequency of 30Hz
+ir_pwm = GPIO.PWM(15, 30)  # Frequency of 30Hz
 red_pwm.start(100)  # Initial duty cycle of 0%
 ir_pwm.start(0)  # Initial duty cycle of 100%
 duty_cycle = 100  # Set duty cycle to 100%
